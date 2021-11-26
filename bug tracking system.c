@@ -72,80 +72,80 @@ void changestatus()
     scanf("%s",name);
     strcat(name,ex);
     file=fopen(name,"a");
-	printf("\n 1.NOT YET ASSIGNED\n 2.IN PROCESS\n 3.FIXED");
-	printf("\n 4.DELIVERED\n\n ENTER YOUR CHOICE:");
-	int k;
-	scanf("%d",&k);
-	fprintf(file,"\nDATE AND TIME: %s",ctime(&CurrentTime));
-	fprintf(file,"BUG STATUS: ");
-	switch (k) 
-	{
-	case 1:
-		fprintf(file,"NOT YET ASSIGNED\n");
-		break;
-	case 2:
-		fprintf(file,"IN PROCESS\n");
-		break;
-	case 3:
-		fprintf(file,"FIXED\n");
-		break;
-	case 4:
-		fprintf(file,"DELIVERED\n");
-		break;
-	default:
-		printf(" invalid choice\n");
-		fprintf(file,"SAME STATE");
-		break;
-	}
-	fclose(file);
+    printf("\n 1.NOT YET ASSIGNED\n 2.IN PROCESS\n 3.FIXED");
+    printf("\n 4.DELIVERED\n\n ENTER YOUR CHOICE:");
+    int k;
+    scanf("%d",&k);
+    fprintf(file,"\nDATE AND TIME: %s",ctime(&CurrentTime));
+    fprintf(file,"BUG STATUS: ");
+    switch (k) 
+    {
+    case 1:
+	fprintf(file,"NOT YET ASSIGNED\n");
+	break;
+    case 2:
+	fprintf(file,"IN PROCESS\n");
+	break;
+    case 3:
+	fprintf(file,"FIXED\n");
+	break;
+    case 4:
+	fprintf(file,"DELIVERED\n");
+	break;
+    default:
+	printf(" invalid choice\n");
+	fprintf(file,"SAME STATE");
+	break;
+    }
+    fclose(file);
 }
 void report()
 {
-	printf("\n************** REPORT **************\n");
-	FILE* fp;
-	char name[50],ex[]=".txt";
-	printf("Enter file name:\n");
-	scanf("%s",name);
-	strcat(name,ex);
-	fp=fopen(name,"r");
-	char ch;
-	ch=getc(fp);
-	while (ch!=EOF)
-	{
+    printf("\n************** REPORT **************\n");
+    FILE* fp;
+    char name[50],ex[]=".txt";
+    printf("Enter file name:\n");
+    scanf("%s",name);
+    strcat(name,ex);
+    fp=fopen(name,"r");
+    char ch;
+    ch=getc(fp);
+    while (ch!=EOF)
+    {
 	printf("%c",ch);
 	ch=getc(fp);
-	}
-	fclose(fp);
-	getch();
+    }
+    fclose(fp);
+    getch();
 }
 void main()
 {
-	printf("************** BUG TRACKING SYSTEM **************\n");
-	int number, i=1, id=0;
-	while (i!=0) 
-	{
-		printf("\n 1.FILE A NEW BUG\n 2.CHANGE THE STATUS OF THE BUG");
-		printf("\n 3.GET BUG REPORT\n 4.EXIT");
-		printf("\n\n ENTER YOUR CHOICE:");
-		scanf("%d",&number);
-		switch (number) 
-		{
-		case 1:
-			id++;
-			filebug(id);
-			break;
-		case 2:
-			changestatus();
-			break;
-		case 3:
-			report();
-			break;
-		case 4:
-			i=0;
-			break;
-		default:
-			printf(" invalid choice\n");
-			break;
-		}
-	}
+    printf("************** BUG TRACKING SYSTEM **************\n");
+    int number, i=1, id=0;
+    while (i!=0) 
+    {
+	printf("\n 1.FILE A NEW BUG\n 2.CHANGE THE STATUS OF THE BUG");
+	printf("\n 3.GET BUG REPORT\n 4.EXIT");
+	printf("\n\n ENTER YOUR CHOICE:");
+	scanf("%d",&number);
+	switch (number) 
+        {
+	case 1:
+	    id++;
+	    filebug(id);
+	    break;
+	case 2:
+	    changestatus();
+	    break;
+	case 3:
+	    report();
+	    break;
+	case 4:
+	    i=0;
+	    break;
+	default:
+	    printf(" invalid choice\n");
+	    break;
+	} 
+    }
 }
