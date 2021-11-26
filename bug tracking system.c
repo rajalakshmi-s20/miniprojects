@@ -5,22 +5,22 @@
 #include <time.h>
 void filebug(int id)
 {
-	printf("********** FILING A BUG ***********\n");
-	time_t CurrentTime;
-	time(&CurrentTime);
-	char name[20], bugtype[50], bugdescription[1000], bugpriority[30];
-	FILE* ptr;
-	printf("Enter your name:\n");
-	scanf("%s",name);
-	char ids[10],ex[]=".txt";
-	itoa(id,ids,10);
-	strcat(name,ids);
-	strcat(name,ex);
-	printf("Filename:%s\n",name);
-	ptr=fopen(name,"w");
-	if (ptr==NULL)
-		printf("cannot create file!\n");
-	fprintf(ptr,"DATE AND TIME: %s",ctime(&CurrentTime));
+    printf("********** FILING A BUG ***********\n");
+    time_t CurrentTime;
+    time(&CurrentTime);
+    char name[20], bugtype[50], bugdescription[1000], bugpriority[30];
+    FILE* ptr;
+    printf("Enter your name:\n");
+    scanf("%s",name);
+    char ids[10],ex[]=".txt";
+    itoa(id,ids,10);
+    strcat(name,ids);
+    strcat(name,ex);
+    printf("Filename:%s\n",name);
+    ptr=fopen(name,"w");
+    if (ptr==NULL)
+	printf("cannot create file!\n");
+    fprintf(ptr,"DATE AND TIME: %s",ctime(&CurrentTime));
     fprintf(ptr,"BUG ID: %d\n\n",id);
     printf("BUG ID:%d\n",id);
     fprintf(ptr,"BUG FILED BY: %s\n\n",name);
@@ -33,45 +33,45 @@ void filebug(int id)
     printf("Enter the bug description:\n");
     scanf(" %[^\n]s",bugdescription);
     fprintf(ptr,"BUG DESCRIPTION: %s\n",bugdescription);
-	printf("\n Status of bug:");
-	printf("\n 1.NOT YET ASSIGNED\n 2.IN PROCESS\n 3.FIXED");
-	printf("\n 4.DELIVERED\n\n ENTER YOUR CHOICE:");
-	int j;
-	scanf("%d",&j);
-	fprintf(ptr,"\nDATE AND TIME: %s",ctime(&CurrentTime));
-	fprintf(ptr,"BUG STATUS: ");
-	switch (j) 
-	{
-	case 1:
-		fprintf(ptr,"NOT YET ASSIGNED\n");
-		break;
-	case 2:
-		fprintf(ptr,"IN PROCESS\n");
-		break;
-	case 3:
-		fprintf(ptr,"FIXED\n");
-		break;
-	case 4:
-		fprintf(ptr,"DELIVERED\n");
-		break;
-	default:
-		printf(" invalid choice\n");
-		fprintf(ptr,"DETECTED\n");
-		break;
-	}
-	fclose(ptr);
+    printf("\n Status of bug:");
+    printf("\n 1.NOT YET ASSIGNED\n 2.IN PROCESS\n 3.FIXED");
+    printf("\n 4.DELIVERED\n\n ENTER YOUR CHOICE:");
+    int j;
+    scanf("%d",&j);
+    fprintf(ptr,"\nDATE AND TIME: %s",ctime(&CurrentTime));
+    fprintf(ptr,"BUG STATUS: ");
+    switch (j) 
+    {
+    case 1:
+	fprintf(ptr,"NOT YET ASSIGNED\n");
+	break;
+    case 2:
+	fprintf(ptr,"IN PROCESS\n");
+	break;
+    case 3:
+	fprintf(ptr,"FIXED\n");
+	break;
+    case 4:
+	fprintf(ptr,"DELIVERED\n");
+	break;
+    default:
+	printf(" invalid choice\n");
+	fprintf(ptr,"DETECTED\n");
+	break;
+    }
+    fclose(ptr);
 }
 void changestatus()
 {
-	printf("************ Change status ************\n");
-	time_t CurrentTime;
-	time(&CurrentTime);
-	FILE* file;
-	char name[50],ex[]=".txt";
-	printf("Enter file name:\n");
-	scanf("%s",name);
-	strcat(name,ex);
-	file=fopen(name,"a");
+    printf("************ Change status ************\n");
+    time_t CurrentTime;
+    time(&CurrentTime);
+    FILE* file;
+    char name[50],ex[]=".txt";
+    printf("Enter file name:\n");
+    scanf("%s",name);
+    strcat(name,ex);
+    file=fopen(name,"a");
 	printf("\n 1.NOT YET ASSIGNED\n 2.IN PROCESS\n 3.FIXED");
 	printf("\n 4.DELIVERED\n\n ENTER YOUR CHOICE:");
 	int k;
