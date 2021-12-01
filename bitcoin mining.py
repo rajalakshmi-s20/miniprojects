@@ -1,5 +1,5 @@
 from hashlib import sha256
-MAX_NONCE=10000000
+MAX_NONCE=100000000
 def SHA256(text):
     return sha256(text.encode("ascii")).hexdigest()
 def mine (block_number, transactions, previous_hash, prefix_zeros):
