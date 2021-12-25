@@ -75,7 +75,7 @@ int main()
         case '2':
             system("cls");
             rewind(fp); 
-            printf(" name       age  basic salary");
+            printf(" NAME       AGE  BASE SALARY");
             while(fread(&e,recsize,1,fp)==1) 
             {
                 printf("\n %-10s %-2d   %.2f",e.name,e.age,e.bs); 
